@@ -1,0 +1,69 @@
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;nav class="navbar"&gt;
+      &lt;h1&gt;&lt;a id="logo"&gt;WittCepter&lt;/a&gt;&lt;/h1&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a class="underline-text" href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="underline-text" href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="underline-text" href="#"&gt;Projects&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="underline-text" href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --primary: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: var(--primary);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 32px;
+  }.navbar &gt; ul {
+    display: flex;
+    list-style-type: none;
+    gap: 40px;
+  }#logo {
+    font-size: 40px;
+    text-decoration: none;
+  }
+  
+  #logo:hover {
+    cursor: pointer;
+  }.underline-text {
+    text-decoration-color: transparent;
+    text-underline-offset: 8px;
+    transition-property: text-decoration-color;
+    transition-duration: 1s;
+  }
+  
+  .underline-text:hover {
+    text-decoration-color: var(--primary);
+    transition-property: text-decoration-color;
+    transition-duration: 1s;
+  }

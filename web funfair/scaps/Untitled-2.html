@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funfair Casino</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <style>
+        /* Inline CSS */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(#2a2a2a, #101010);
+            color: #fff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+          }
+        /* Basic styling for the header */
+/* NAVIGATION */
+.nav-wrapper {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: rgba(28, 28, 28, 0.9); /* Match the theme */
+    z-index: 1000;
+  }
+  
+  .grad-bar {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    animation: gradbar 15s ease infinite;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+  }
+  
+  .navbar img {
+    height: 40px;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+  }
+  
+  .nav-item a:hover {
+    color: #ffcc00; /* Match hover color */
+  }
+  
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  
+  /* MOBILE MENU */
+  @media (max-width: 720px) {
+    .navbar ul {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      background-color: #333; /* Match the mobile menu background */
+      width: 100%;
+      top: 60px;
+      left: 0;
+      height: calc(100vh - 60px);
+      text-align: center;
+    }
+  
+    .navbar ul.mobile-nav {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    .mobile-nav .nav-item {
+      padding: 15px;
+    }
+  
+    .mobile-nav .nav-item a {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @keyframes gradbar {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+
+        .hero-section {
+            height: 100vh;
+            background: url('casino-background.jpg') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+            position: relative;
+        }
+
+        .icon-wrapper {
+            display: flex;
+            flex-direction: column; /* Stack iframe and text */
+            align-items: center; /* Center align text */
+            position: relative; /* Positioning for hover effects */
+        }
+        
+        .game-name {
+            margin-top: 10px; /* Space between iframe and text */
+            font-size: 1.2rem; /* Adjust font size */
+            color: #333; /* Text color */
+            text-transform: uppercase; /* Uppercase text */
+            font-family: 'Arial', sans-serif; /* Choose your desired font */
+            transition: transform 0.3s, color 0.3s; /* Add transitions for effects */
+        }
+        
+        .lottie-icon:hover + .game-name {
+            transform: scale(1.1); /* Scale up text on hover */
+            color: #007BFF; /* Change text color on hover */
+        }
+        
+        .offer-section {
+            padding: 100px 2rem;
+            text-align: center;
+        }
+        
+        .offer-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .offer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .lottie-icon {
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            border: none; /* Remove border */
+            
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow */
+            transition: transform 0.3s;
+        }
+        
+        .lottie-icon:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .cta-btn-locations {
+            margin-top: 2rem;
+            background-color: #ffcc00;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn-locations:hover {
+            background-color: #333;
+            color: #ffcc00;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+          }
+          
+          .card {
+            position: relative;
+            background-color: #fad506;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 600px; /* Set the card width (adjust as necessary) */
+            max-width: 900px; /* Prevent the card from expanding too much */
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          
+          .floating-image-container {
+            position: relative;
+            left: -60px; /* Adjust the image's left positioning */
+            width: 400px; /* Width of the floating image container */
+            height: 150px; /* Fixed height to avoid changing size */
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(216, 185, 7, 0.247); /* Shadow for hover effect */
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: #0c0c0cf6;
+          }
+          
+          .floating-image-container img {
+            padding-left: 20px;
+            width: 90%;
+            height: 90%;
+            object-fit: contain; /* Resize the image to fit inside the box without zooming in */
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+          }
+          
+          
+          
+          .card-content {
+            padding-left: 60px; /* Adjust the padding based on the image container size */
+            z-index: 1;
+          }
+          
+          .card-content .date {
+            font-size: 12px;
+            color: #aaa;
+          }
+          
+          .card-content h3 {
+            font-size: 24px;
+            margin: 10px 0;
+          }
+          
+          .card-content p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+          }
+          
+          .read-more-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+          }
+          
+          .read-more-btn:hover {
+            background-color: #ff784e;
+            transform: translateY(-2px);
+          }
+          
+          .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+          }
+          
+          .floating-image-container img:hover {
+            transform: scale(1.05);
+          }
+          
+          @media screen and (max-width: 768px) {
+            .card {
+              width: 90%;
+              flex-direction: column;
+              max-width: none; /* Prevent too much expansion */
+            }
+          
+            .floating-image-container {
+              left: 0;
+              width: 90%;
+              margin-bottom: 20px;
+            }
+            
+          
+            .card-content {
+              padding-left: 0;
+            }
+          }
+          
+          
+           
+          
+
+        footer {
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        footer .footer-links a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .online-card {
+                flex-direction: column;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="nav-wrapper">
+        <div class="grad-bar"></div>
+        <nav class="navbar">
+            <a href="index.html">
+                <img src="assests/funfair.jpg" alt="Funfair Casino Logo">
+            </a>
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="nav no-search">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="#">Promotions</a></li>
+            <li class="nav-item"><a href="locations.html">Locations</a></li>
+            <li class="nav-item"><a href="#contact">Contact Us</a></li>
+           
+          </ul>
+        </nav>
+      </div>
+      
+
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Funfair Casino</h1>
+            <p>Your Gateway to World-Class Entertainment</p>
+            <button class="cta-btn-locations" onclick="window.location.href='locations.html'">Show Locations</button>
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>what we offer</h2>
+        <div class="offer-icons">
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/caf13399-74c8-47dd-9291-261bb1f14800/VyzKRAtiYn.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe>  <!-- roulette -->
+                <p class="game-name">Roulette</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/656d1490-b083-429a-b555-c139dbbbfcf9/OyucsItEHK.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe>  <!-- blackjack -->
+                <p class="game-name">Blackjack</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/84fd8c25-6287-479d-8b96-0b636ff631db/NKyj43qZA5.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe><!-- slots -->
+                <p class="game-name">loyalty program</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/8cf71389-a2b9-4872-addf-bb85e760d333/U5S2DxFbR1.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe><!-- bingo -->
+                <p class="game-name">Bingo</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/076eaf2e-7a76-4b05-8995-7a3b9626bdbf/vi21OQrndv.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe><!-- roulette -->
+                <p class="game-name">slots</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section
+    <section class="offer-section">
+        <h2>What We Offer</h2>
+        <div class="offer-icons">
+            <img src="slot-icon.gif" alt="Slots">
+            <img src="roulette-icon.gif" alt="Roulette">
+            <img src="blackjack-icon.gif" alt="Blackjack">
+            <img src="bingo-icon.gif" alt="Bingo">
+            <img src="poker-icon.gif" alt="Poker">
+        </div>
+        <a href="locations.html" class="locations-button">Show Locations</a>
+    </section> -->
+    <!-- What We Offer Section -->
+    <!-- What We Offer Section -->
+    <section class="offer-section">
+        <h2>Our services</h2>
+        <div class="offer-icons">
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/034bba2b-3770-4e3e-a003-c6c183bb5089/ddhhj9D4ZT.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe>  <!-- atm -->
+                <p class="game-name">Roulette</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/656d1490-b083-429a-b555-c139dbbbfcf9/OyucsItEHK.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe>  <!-- blackjack -->
+                <p class="game-name">Blackjack</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/84fd8c25-6287-479d-8b96-0b636ff631db/NKyj43qZA5.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe><!-- slots -->
+                <p class="game-name">loyalty program</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/8cf71389-a2b9-4872-addf-bb85e760d333/U5S2DxFbR1.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe><!-- bingo -->
+                <p class="game-name">Bingo</p>
+            </div>
+            <div class="icon-wrapper">
+                <iframe src="https://lottie.host/embed/076eaf2e-7a76-4b05-8995-7a3b9626bdbf/vi21OQrndv.json" class="lottie-icon" frameborder="0" allowfullscreen></iframe><!-- roulette -->
+                <p class="game-name">slots</p>
+            </div>
+        </div>
+        <p>At Funfair Casino, we offer the best slots, table games, and the most exclusive experiences worldwide.</p>
+        
+        <a href="locations.html" class="locations-button">Show Locations</a>
+    </section>
+    
+
+
+    <dotlottie-player src="https://lottie.host/caf13399-74c8-47dd-9291-261bb1f14800/VyzKRAtiYn.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+
+    <!-- Online Casino Section -->
+    <div class="card-container">
+        <div class="card">
+          <div class="floating-image-container">
+            <img src="assests/hot7.png" alt="Online Casino" />
+          </div>
+          <div class="card-content">
+            <span class="date">26 December 2019</span>
+            <h3>Lorem Ipsum Dolor2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipiscing elit. Recusandae voluptate repellendus magni illo ea animi?</p>
+            <a href="https://www.hot7casino.com/" target="_blank" class="read-more-btn">Read More</a>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <p>&copy; 2024 Funfair Casino. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            
+            <a href="https://www.responsiblegambling.org/" target="_blank">Responsible Gambling</a>
+        </div>
+        <p style="margin-top: 20px;">Contact us at: info@funfaircasino.com</p>
+        <p style="margin: 10px 0;">Phone: +123 456 7890</p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scroll and Header Fade -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        $('.navTrigger').click(function () {
+            $(this).toggleClass('active');
+            console.log("Clicked menu");
+            $("#mainListDiv").toggleClass("show_list");
+            $("#mainListDiv").fadeIn();
+        
+        });
+
+        $('.menu-toggle').click(function() {
+            $(".navbar ul").toggleClass("mobile-nav");
+            $(this).toggleClass("is-active");
+          });
+
+</script>
+
+      
+
+
+</body>
+</html>
+
